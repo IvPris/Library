@@ -1,5 +1,4 @@
-﻿
-/*!
+﻿/*!
  * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
@@ -11,7 +10,6 @@ body {
     background-repeat: repeat;
     font-family: 'Poppins', sans-serif;
 }
-
 
 .slide-image {
     width: 100%;
@@ -37,8 +35,6 @@ body {
     .caption h5 {
         white-space: pre-wrap;
     }
-
-
 
 .thumbnail img {
     width: 100%;

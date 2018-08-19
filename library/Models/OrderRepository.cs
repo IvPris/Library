@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace library.Models
 {
@@ -10,13 +7,11 @@ namespace library.Models
         private readonly AppDbContext _appDbContext;
         private readonly ShoppingCart _shoppingCart;
 
-
         public OrderRepository(AppDbContext appDbContext, ShoppingCart shoppingCart)
         {
             _appDbContext = appDbContext;
             _shoppingCart = shoppingCart;
         }
-
 
         public void CreateOrder(Order order)
         {

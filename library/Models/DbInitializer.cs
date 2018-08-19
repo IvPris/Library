@@ -1,9 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace library.Models
 {
@@ -44,7 +40,9 @@ namespace library.Models
             }
             context.SaveChanges();
         }
+
         private static Dictionary<string, Category> categories;
+
         public static Dictionary<string, Category> Categories
         {
             get

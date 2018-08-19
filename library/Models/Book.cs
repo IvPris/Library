@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace library.Models
+﻿namespace library.Models
 {
     public class Book
     {
@@ -15,6 +10,5 @@ namespace library.Models
         public int CategoryId { get; set; }
         public bool IsBookOfTheWeek { get; set; }
         public virtual Category Category { get; set; }
-
     }
 }

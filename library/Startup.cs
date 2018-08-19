@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using library.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using library.Models;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace library
 {
     public class Startup
     {
-
         private IConfigurationRoot _configurationRoot;
 
         public Startup(IHostingEnvironment hostingEnvironment)
@@ -65,7 +60,6 @@ namespace library
                 template: "{controller=Home}/{action=Index}/{id?}");
             });
             DbInitializer.Seed(context);
-
         }
-}
+    }
 }

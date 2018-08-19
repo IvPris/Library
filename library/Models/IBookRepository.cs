@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace library.Models
 {
@@ -9,6 +6,7 @@ namespace library.Models
     {
         IEnumerable<Book> Books { get; }
         IEnumerable<Book> BooksOfTheWeek { get; }
-        Book getBookById ( int bookid );
+
+        Book getBookById(int bookid);
     }
 }

@@ -72,7 +72,11 @@ namespace library.Controllers
                     return RedirectToAction("Index", "Home");
                 }
             }
-            ModelState.AddModelError("", "Password not valid");
+            if (loginViewModel.Password != null)
+            {
+                ModelState.AddModelError("", "Password not valid");
+            }
+
             return View(loginViewModel);
         }
 

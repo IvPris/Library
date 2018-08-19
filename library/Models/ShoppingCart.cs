@@ -4,13 +4,13 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace library.Models
 {
     public class ShoppingCart
     {
         private readonly AppDbContext _appDbContext;
+
         private ShoppingCart(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
@@ -41,18 +41,13 @@ namespace library.Models
             if (shoppingCartItem == null)
             {
                 shoppingCartItem = new ShoppingCartItem
-            {
-                ShoppingCartId = ShoppingCartId,
-                Book = book,
-                Amount = 1
-            };
+                {
+                    ShoppingCartId = ShoppingCartId,
+                    Book = book,
+                    Amount = 1
+                };
 
-            _appDbContext.ShoppingCartItems.Add(shoppingCartItem);
-
-            }
-            else
-            {
-                shoppingCartItem.Amount++;
+                _appDbContext.ShoppingCartItems.Add(shoppingCartItem);
             }
 
             _appDbContext.SaveChanges();
@@ -68,15 +63,7 @@ namespace library.Models
 
             if (shoppingCartItem != null)
             {
-                if (shoppingCartItem.Amount > 1)
-                {
-                    shoppingCartItem.Amount--;
-                    localAmount = shoppingCartItem.Amount;
-                }
-                else
-                {
-                    _appDbContext.ShoppingCartItems.Remove(shoppingCartItem);
-                }
+                _appDbContext.ShoppingCartItems.Remove(shoppingCartItem);
             }
 
             _appDbContext.SaveChanges();
@@ -103,8 +90,5 @@ namespace library.Models
 
             _appDbContext.SaveChanges();
         }
-
     }
-
 }
-

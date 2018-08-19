@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using library.Models;
+﻿using library.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,11 +16,13 @@ namespace library.Controllers
             _orderRepository = orderRepository;
             _shoppingCart = shoppingCart;
         }
+
         [Authorize]
         public IActionResult Checkout()
         {
             return View();
         }
+
         [HttpPost]
         [Authorize]
         public IActionResult Checkout(Order order)
@@ -44,13 +42,12 @@ namespace library.Controllers
                 return RedirectToAction("CheckoutComplete");
             }
             return View(order);
-
         }
 
         public IActionResult CheckoutComplete()
         {
             ViewBag.CheckoutCompleteMessage = HttpContext.User.Identity.Name +
-                                      "Thank you for your order. You'll be soon able to pick your books up!";
+                                      ", thank you for your order. You'll be soon able to pick your books up!";
             return View();
         }
     }

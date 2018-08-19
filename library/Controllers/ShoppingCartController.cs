@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using library.Models;
+﻿using library.Models;
 using library.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,8 +27,9 @@ namespace library.Controllers
             {
                 ShoppingCart = _shoppingCart
             };
-        return View(shoppingCartViewModel);
+            return View(shoppingCartViewModel);
         }
+
         public RedirectToActionResult AddToShoppingCart(int bookId)
         {
             var selectedBook = _bookRepository.Books.FirstOrDefault(b => b.BookId == bookId);
