@@ -1,0 +1,61 @@
+﻿<div id="bookDiv"></div>
+@section scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            LoadMoreBooks();
+        });
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                LoadMoreBooks();
+            }
+        });
+
+        function LoadMoreBooks() {
+
+            $.ajax({
+                type: 'GET',
+                url: '/api/BookData',
+                dataType: 'json',
+                success: function (jsonData) {
+                    if (jsonData == null) {
+                        alert('no data returned');
+                        return;
+                    }
+
+                    $.each(jsonData, function (index, book) {
+
+                        var BookSummarString = '<div class="col-sm-4 col-lg-4 col-md-4"> ' +
+                            '  <div class="thumbnail">' +
+                            '  <div class="aspect-ratio-box">' +
+                            ' <div class="aspect-ratio-box-inside">' +
+                            '     <img src="' + book.imageUrl + '" alt="">' +
+                            '                       </div >' +
+                            ' </div>' +
+                            '      <div class="caption">' +
+                            '         <h4><b><a href=/Book/Details?=' + book.bookId + '>' + book.title + '</a></b ></h4 > ' +
+
+                            '         <h5>' + book.author + '</h5>' +
+                            '    </div>' +
+                            '    <div class="addToCart">' +
+                            '        <p class="button">' +
+                            '             <a class="btn btn-primary" href=/ShoppingCart/AddToShoppingCart?bookId=' + book.bookId + '>Add to cart</a>' +
+                            '         </p>' +
+                            '     </div>' +
+                            '  </div>' +
+                            '</div>';
+
+                        $('#bookDiv').append(BookSummarString);
+                    });
+                },
+                error: function (ex) {
+                    alert(ex);
+                }
+            });
+            return false;
+        }
+    </script>
+
+}

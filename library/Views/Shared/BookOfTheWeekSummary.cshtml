@@ -1,0 +1,25 @@
+﻿@model Book
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+
+
+    <div class="thumbnail">
+        <div class="aspect-ratio-box">
+            <div class="aspect-ratio-box-inside">
+                <img src="@Model.ImageUrl" alt="" />
+            </div>
+        </div>
+        <div class="caption">
+
+            <h4><a asp-controller="Book" asp-action="Details" asp-route-id="@Model.BookId"><b>@Model.Title</b></a></h4>
+            <h5>@Model.Author</h5>
+        </div>
+        <div class="addToCart">
+            <p class="button">
+                <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart"
+                   asp-route-bookId="@Model.BookId">Add to cart</a>
+            </p>
+        </div>
+
+    </div>
+</div>
