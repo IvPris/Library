@@ -1,14 +1,10 @@
 ﻿using library.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using library.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace library.Components
 {
-    public class CategoryMenu:ViewComponent
+    public class CategoryMenu : ViewComponent
     {
         private readonly ICategoryRepository _categoryRepository;
 

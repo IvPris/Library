@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using library.ViewModels;
+﻿using library.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,7 +11,6 @@ namespace library.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
 
@@ -24,14 +20,16 @@ namespace library.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+
         [AllowAnonymous]
         public IActionResult Login(string returnUrl)
         {
             return View(new LoginViewModel
             {
-                    ReturnUrl=returnUrl
-                });
+                ReturnUrl = returnUrl
+            });
         }
+
         [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
@@ -52,6 +50,7 @@ namespace library.Controllers
             ModelState.AddModelError("", "Username/password not found");
             return View(loginViewModel);
         }
+
         [AllowAnonymous]
         public IActionResult Register()
         {
@@ -88,4 +87,3 @@ namespace library.Controllers
         }
     }
 }
-
